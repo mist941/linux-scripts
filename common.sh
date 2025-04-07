@@ -9,23 +9,24 @@ readonly BLUE='\033[0;34m'
 readonly NC='\033[0m'
 
 print_error() {
-  echo -e "${RED}ERROR: $1${NC}" >&2
+  echo -e "${RED}ERROR: ${NC}$1" >&2
 }
 
 print_success() {
-  echo -e "${GREEN}SUCCESS: $1${NC}"
+  echo -e "${GREEN}SUCCESS: ${NC}$1"
 }
 
 print_warning() {
-  echo -e "${YELLOW}WARNING: $1${NC}"
+  echo -e "${YELLOW}WARNING: ${NC}$1"
 }
 
 print_info() {
-  echo -e "${BLUE}INFO: $1${NC}"
+  echo -e "${BLUE}INFO: ${NC}$1"
 }
 
 check_if_package_is_installed() {
   if dpkg -s "$1" &>/dev/null; then
-    echo "$2 is already installed"
+    return 1
   fi
+  return 0
 }
