@@ -26,7 +26,8 @@ print_info() {
 
 check_if_package_is_installed() {
   if dpkg -s "$1" &>/dev/null; then
-    return 1
+    true
+  else
+    false
   fi
-  return 0
 }
