@@ -32,15 +32,4 @@ print_success "Added the repository to Apt sources"
 # Install Docker Engine, containerd, and Docker Compose:
 print_info "Installing Docker Engine, containerd, and Docker Compose"
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-if ! check_if_package_is_installed docker; then
-  print_error "Docker is not installed"
-  exit 1
-fi
-
-if ! check_if_package_is_installed docker-compose; then
-  print_error "Docker Compose is not installed"
-  exit 1
-fi
-
 print_success "Docker and Docker Compose are installed"
