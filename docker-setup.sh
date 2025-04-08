@@ -33,3 +33,19 @@ print_success "Added the repository to Apt sources"
 print_info "Installing Docker Engine, containerd, and Docker Compose"
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 print_success "Docker and Docker Compose are installed"
+
+print_info "Adding current user to the docker group"
+sudo groupadd docker
+sudo usermod -aG docker $USER
+print_success "Added current user to the docker group"
+
+print_info "Enabling and starting Docker service"
+sudo systemctl enable docker
+sudo systemctl start docker
+print_success "Docker service is enabled and started"
+
+if ask_for_reboot; then
+  print_info "Rebooting the system..."
+  sudo reboot
+  print_success "System rebooted"
+fi

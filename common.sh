@@ -31,3 +31,20 @@ check_if_package_is_installed() {
     false
   fi
 }
+
+ask_for_reboot() {
+  while true; do
+    read -rp "Do you want to reboot the system now? (y/n): " answer
+    case ${answer:0:1} in
+    y | Y)
+      return 0
+      ;;
+    n | N)
+      return 1
+      ;;
+    *)
+      print_warning "Please enter 'y' for yes or 'n' for no"
+      ;;
+    esac
+  done
+}
