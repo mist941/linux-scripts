@@ -34,10 +34,12 @@ print_info "Installing Docker Engine, containerd, and Docker Compose"
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 print_success "Docker and Docker Compose are installed"
 
-print_info "Adding current user to the docker group"
-sudo groupadd docker
-sudo usermod -aG docker $USER
-print_success "Added current user to the docker group"
+if ! groups "$USER" | grep -q "docker"; then
+  print_info "Adding current user to the docker group"
+  sudo groupadd docker
+  sudo usermod -aG docker $USER
+  print_success "Added current user to the docker group"
+fi
 
 print_info "Enabling and starting Docker service"
 sudo systemctl enable docker
