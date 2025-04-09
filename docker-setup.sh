@@ -2,7 +2,17 @@
 
 set -euo pipefail
 
-source common.sh
+readonly BLUE='\033[0;34m'
+readonly GREEN='\033[0;32m'
+readonly NC='\033[0m'
+
+print_success() {
+  echo -e "${GREEN}SUCCESS: ${NC}$1"
+}
+
+print_info() {
+  echo -e "${BLUE}INFO: ${NC}$1"
+}
 
 # Uninstall all conflicting packages:
 print_info "Uninstalling all conflicting packages"
