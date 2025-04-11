@@ -64,7 +64,6 @@ print_success "Docker and Docker Compose are installed"
 # Add the current user to the docker group
 if ! groups "$USER" | grep -q "docker"; then
   print_info "Adding current user to the docker group"
-  sudo groupadd docker
   sudo usermod -aG docker $USER
   print_success "Added current user to the docker group"
 fi
