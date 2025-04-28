@@ -37,3 +37,5 @@ Plug 'vim-airline/vim-airline'                  " Status bar
 
 call plug#end()
 EOF
+
+vim +PlugInstall +qall
