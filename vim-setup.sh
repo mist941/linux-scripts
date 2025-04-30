@@ -36,6 +36,8 @@ Plug 'tpope/vim-fugitive'                       " Git
 Plug 'vim-airline/vim-airline'                  " Status bar
 
 call plug#end()
+
+colorscheme gruvbox
 EOF
 
 vim +PlugInstall +qall
