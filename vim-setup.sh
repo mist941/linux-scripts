@@ -29,13 +29,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocomplete
 
 Plug 'preservim/nerdtree'                       " File manager
 
-Plug 'dense-analysis/ale'                       " Code analyses
+Plug 'dense-analysis/ale'                       " Code analyses:
 
 Plug 'tpope/vim-fugitive'                       " Git
 
 Plug 'vim-airline/vim-airline'                  " Status bar
 
 call plug#end()
+
+set background=dark
 
 colorscheme gruvbox
 EOF
