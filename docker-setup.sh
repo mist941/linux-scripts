@@ -4,6 +4,7 @@ set -euo pipefail
 
 readonly BLUE='\033[0;34m'
 readonly GREEN='\033[0;32m'
+readonly YEELOW='\033[0;33m'
 readonly NC='\033[0m'
 
 print_success() {
@@ -12,6 +13,10 @@ print_success() {
 
 print_info() {
   echo -e "${BLUE}INFO: ${NC}$1"
+}
+
+print_warning() {
+  echo -e "${YEELOW}INFO: ${NC}$1"
 }
 
 ask_for_reboot() {
