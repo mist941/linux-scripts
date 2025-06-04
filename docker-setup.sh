@@ -20,8 +20,7 @@ print_warning() {
 }
 
 ask_for_reboot() {
-  while true; do
-    read -rp "Do you want to reboot the system now? (y/n): " answer
+  read -rp "Do you want to reboot the system now? (y/n): " answer
     answer=$(echo "$answer" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')
     case "$answer" in
     y)
@@ -33,8 +32,7 @@ ask_for_reboot() {
     *)
       echo "Please enter 'y' for yes or 'n' for no"
       ;;
-    esac
-  done
+  esac
 }
 
 # Uninstall all conflicting packages:
